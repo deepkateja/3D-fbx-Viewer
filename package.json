@@ -19,6 +19,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
+    "mdbreact": "^4.27.0",
     "three": "^0.94.0",
     "three-fbxloader-offical": "^1.0.0",
     "three-orbit-controls": "^82.1.0"

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-
 import ReactThreeFbxViewer from 'react-three-fbx-viewer';
+
 let selected;
 let fbxUrl = require('./asd.fbx');
 let check = false;
 let labranth = 'https://firebasestorage.googleapis.com/v0/b/viga-6c3dd.appspot.com/o/Dragon%202.5_fbx.fbx?alt=media&token=29b08274-aa13-4e0e-b1a9-4778cf12d8c1';
+
+
+
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -13,6 +16,7 @@ export default class App extends Component {
 		};
 		this.refreshPage = this.refreshPage.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		
 		console.log("constructor is working");
 		console.log(sessionStorage.getItem('3dmodel'));
 		if(sessionStorage.getItem('3dmodel')!== null){
@@ -63,6 +67,7 @@ export default class App extends Component {
 	    
 	   
 	 }
+	 
 	render () {
 		const {file} = this.state;
 		let cameraPosition = {
@@ -72,9 +77,15 @@ export default class App extends Component {
 		}
 		return (
 			<div>
-				<div><input type="file" name="file" placeholder="Uplaod Image or 3D Model" onChange={this.handleChange}></input></div>
 				
-
+				<br />
+				<br />
+				<div>
+					<input type="file" name="file" className="uploadbox" placeholder="Uplaod Image or 3D Model" onChange={this.handleChange}></input>
+					
+					</div>
+				
+					<br /> <br />
 					<ReactThreeFbxViewer cameraPosition={cameraPosition} url={selected} onLoading={this.onLoad} onError={this.onError}/>)
 				
 					
