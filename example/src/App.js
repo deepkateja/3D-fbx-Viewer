@@ -4,7 +4,7 @@ import ReactThreeFbxViewer from 'react-three-fbx-viewer';
 let selected;
 let fbxUrl = require('./asd.fbx');
 let check = false;
-let labranth = 'https://firebasestorage.googleapis.com/v0/b/viga-6c3dd.appspot.com/o/cottage_obj.obj?alt=media&token=ec5c3f8f-2d43-449e-bd33-b529b5c0dfa8';
+let labranth = 'https://firebasestorage.googleapis.com/v0/b/viga-6c3dd.appspot.com/o/Dragon%202.5_fbx.fbx?alt=media&token=29b08274-aa13-4e0e-b1a9-4778cf12d8c1';
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -14,10 +14,12 @@ export default class App extends Component {
 		this.refreshPage = this.refreshPage.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		console.log("constructor is working");
-		console.log(localStorage.getItem('3dmodel'));
-		if(localStorage.getItem('3dmodel')!== null){
+		console.log(sessionStorage.getItem('3dmodel'));
+		if(sessionStorage.getItem('3dmodel')!== null){
 			console.log("hoho");
-			selected=localStorage.getItem('3dmodel');
+			selected=sessionStorage.getItem('3dmodel');
+		}else{
+			selected= fbxUrl;
 		}
 
 	  }
@@ -50,8 +52,8 @@ export default class App extends Component {
 			  // this.setState({file: reader.result})
 			   selected = reader.result;
 			   let tp = selected;
-			   localStorage.setItem('3dmodel',tp);
-			   console.log("ITem set " + localStorage.getItem('3dmodel'));
+			   sessionStorage.setItem('3dmodel',tp);
+			   console.log("ITem set " + sessionStorage.getItem('3dmodel'));
 			   console.log(selected);
 			   this.refreshPage();
 		   }
@@ -72,7 +74,7 @@ export default class App extends Component {
 			<div>
 				<div><input type="file" name="file" placeholder="Uplaod Image or 3D Model" onChange={this.handleChange}></input></div>
 				
-					{console.log("HI" + selected)}
+
 					<ReactThreeFbxViewer cameraPosition={cameraPosition} url={selected} onLoading={this.onLoad} onError={this.onError}/>)
 				
 					
