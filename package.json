@@ -2,13 +2,12 @@
   "name": "react-three-fbx-viewer",
   "version": "1.0.1",
   "description": "fbx viewer with three.js for react",
-  "author": "kappys1",
+  "author": "Deep Kateja",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
-  "repository": "kappys1/react-three-fbx-viewer",
-  "homepage": "https://kappys1.github.io/react-three-fbx-viewer",
+  
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
